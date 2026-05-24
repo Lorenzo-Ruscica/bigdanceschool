@@ -1,0 +1,932 @@
+/* ============================================================
+   CORSI PAGE – stile coerente con il sito BigDance School
+   ============================================================ */
+
+/* ─── Navbar override (pagina statica, sempre scrolled) ───── */
+.page-corsi .navbar {
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 2px 12px rgba(13, 77, 102, 0.08);
+  height: 70px;
+}
+
+.page-corsi .nav-link {
+  color: var(--c-text);
+}
+
+.page-corsi .nav-link:hover,
+.page-corsi .nav-link.active {
+  background: var(--c-mid);
+  color: var(--c-dark);
+}
+
+.page-corsi .nav-logo-img {
+  filter: none;
+}
+
+.page-corsi .hamburger span {
+  background: var(--c-text);
+}
+
+/* ─── Page hero banner ─────────────────────────────────────── */
+.page-hero-banner {
+  margin-top: 70px;
+  background: linear-gradient(135deg, var(--c-darker) 0%, var(--c-dark) 100%);
+  padding: 70px 5% 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero-shapes {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.shape {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.shape-1 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(91, 191, 224, 0.14) 0%, transparent 70%);
+  top: -120px;
+  right: 10%;
+}
+
+.shape-2 {
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(168, 225, 245, 0.09) 0%, transparent 70%);
+  bottom: -80px;
+  left: 20%;
+}
+
+.page-hero-content {
+  max-width: 1300px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.page-hero-eyebrow {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--c-accent);
+  margin-bottom: 12px;
+}
+
+.page-hero-title {
+  font-family: var(--font-sans);
+  font-weight: 900;
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  color: var(--c-white);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+/* ─── CORSI INTRO (testo + danzatori) ─────────────────────── */
+.corsi-intro {
+  background: var(--c-white);
+  padding: 100px 5% 80px;
+  overflow: hidden;
+  position: relative;
+}
+
+.corsi-intro::before {
+  content: '';
+  position: absolute;
+  top: -180px;
+  right: -100px;
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, var(--c-mid) 0%, transparent 68%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.corsi-intro-inner {
+  max-width: 1260px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* left text col */
+.corsi-intro-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.corsi-intro-eyebrow {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--c-strong);
+  margin-bottom: 16px;
+}
+
+.corsi-intro-heading {
+  font-family: var(--font-sans);
+  font-weight: 900;
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  line-height: 1.1;
+  color: var(--c-darker);
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+}
+
+.corsi-intro-heading em {
+  font-style: normal;
+  color: var(--c-strong);
+}
+
+.corsi-intro-sub {
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-weight: 700;
+  color: var(--c-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 28px;
+}
+
+.corsi-intro-divider {
+  width: 52px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--c-strong), var(--c-accent));
+  border-radius: 4px;
+  margin-bottom: 28px;
+}
+
+.corsi-intro-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.corsi-intro-bullets li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.93rem;
+  line-height: 1.65;
+  color: var(--c-text-muted);
+}
+
+.corsi-intro-bullets li::before {
+  content: '';
+  flex-shrink: 0;
+  margin-top: 7px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--c-strong);
+}
+
+/* right dancers col – le 3 foto inclinate */
+.corsi-dancers-col {
+  position: relative;
+  height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dancer-frame {
+  position: absolute;
+  width: 190px;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 18px 50px rgba(13, 77, 102, 0.22);
+  border: 4px solid var(--c-white);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
+}
+
+.dancer-frame img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+/* Tre posizioni/rotazioni come nell'immagine originale */
+.dancer-frame--left {
+  left: 0;
+  transform: rotate(-5deg) translateY(30px);
+  z-index: 1;
+  border-color: var(--c-strong);
+}
+
+.dancer-frame--center {
+  left: 50%;
+  transform: translateX(-50%) translateY(-20px);
+  z-index: 3;
+  width: 210px;
+  border-color: var(--c-white);
+  box-shadow: 0 24px 60px rgba(13, 77, 102, 0.28);
+}
+
+.dancer-frame--right {
+  right: 0;
+  transform: rotate(4deg) translateY(20px);
+  z-index: 2;
+  border-color: var(--c-accent);
+}
+
+.dancer-frame--left:hover {
+  transform: rotate(0deg) translateY(-10px) scale(1.04);
+  z-index: 10;
+  box-shadow: 0 30px 70px rgba(13, 77, 102, 0.28);
+}
+
+.dancer-frame--center:hover {
+  /* mantiene translateX(-50%) per non spostare il frame */
+  transform: translateX(-50%) translateY(-32px) scale(1.04);
+  z-index: 10;
+  box-shadow: 0 30px 70px rgba(13, 77, 102, 0.28);
+}
+
+.dancer-frame--right:hover {
+  transform: rotate(0deg) translateY(-10px) scale(1.04);
+  z-index: 10;
+  box-shadow: 0 30px 70px rgba(13, 77, 102, 0.28);
+}
+
+/* accent lines behind photos */
+.dancers-accent-line {
+  position: absolute;
+  width: 6px;
+  height: 320px;
+  border-radius: 4px;
+  background: linear-gradient(180deg, var(--c-strong), var(--c-accent));
+  pointer-events: none;
+}
+
+.dancers-accent-line--left {
+  left: 16px;
+  top: 60px;
+  opacity: 0.55;
+}
+
+.dancers-accent-line--right {
+  right: 16px;
+  top: 90px;
+  background: linear-gradient(180deg, var(--c-accent), var(--c-deep));
+  opacity: 0.45;
+}
+
+/* ─── CORSI GRID ───────────────────────────────────────────── */
+.corsi-grid-section {
+  background: var(--c-light);
+  padding: 90px 5% 100px;
+  border-top: 1px solid var(--c-mid);
+}
+
+.corsi-grid-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.corsi-grid-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.corsi-grid-eyebrow {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--c-strong);
+  margin-bottom: 14px;
+}
+
+.corsi-grid-header-line {
+  width: 48px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--c-accent), var(--c-deep));
+  border-radius: 4px;
+  margin: 0 auto 24px;
+}
+
+.corsi-grid-title {
+  font-family: var(--font-sans);
+  font-weight: 900;
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--c-darker);
+  letter-spacing: -0.02em;
+  margin-bottom: 14px;
+}
+
+.corsi-grid-sub {
+  font-size: 1rem;
+  color: var(--c-text-muted);
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* filter tabs */
+.corsi-filter-bar {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 52px;
+}
+
+.filter-btn {
+  padding: 10px 24px;
+  border-radius: 50px;
+  border: 1.5px solid var(--c-mid);
+  background: var(--c-white);
+  color: var(--c-text-muted);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: var(--c-strong);
+  border-color: var(--c-strong);
+  color: var(--c-white);
+  box-shadow: 0 4px 18px rgba(27, 143, 181, 0.28);
+}
+
+/* the grid */
+.corsi-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.corso-card {
+  background: var(--c-white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1.5px solid var(--c-mid);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  display: flex;
+  flex-direction: column;
+  cursor: default;
+}
+
+.corso-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--c-accent);
+}
+
+/* visual banner at top of card */
+.corso-card-banner {
+  height: 220px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.corso-card-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.corso-card:hover .corso-card-banner img {
+  transform: scale(1.07);
+}
+
+.corso-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(8, 46, 61, 0.55) 0%, transparent 55%);
+}
+
+.corso-card-tag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(8px);
+  color: var(--c-strong);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 5px 13px;
+  border-radius: 50px;
+  box-shadow: 0 2px 10px rgba(13, 77, 102, 0.14);
+}
+
+.corso-card-icon {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--c-strong), var(--c-dark));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(13, 77, 102, 0.35);
+  color: var(--c-white);
+}
+
+.corso-card-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* text body */
+.corso-card-body {
+  padding: 28px 26px 30px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.corso-card-title {
+  font-weight: 800;
+  font-size: 1.12rem;
+  color: var(--c-darker);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 10px;
+}
+
+.corso-card-desc {
+  font-size: 0.9rem;
+  line-height: 1.72;
+  color: var(--c-text-muted);
+  flex: 1;
+  margin-bottom: 20px;
+}
+
+.corso-card-meta {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.corso-meta-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--c-strong);
+  background: var(--c-base);
+  border-radius: 50px;
+  padding: 5px 12px;
+  border: 1px solid var(--c-mid);
+}
+
+.corso-meta-chip svg {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+}
+
+/* ─── PRIMA LEZIONE CTA STRIP ──────────────────────────────── */
+.corsi-cta-strip {
+  background: linear-gradient(135deg, var(--c-darker) 0%, var(--c-dark) 60%, #0a3d52 100%);
+  padding: 80px 5%;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.corsi-cta-strip::before {
+  content: '';
+  position: absolute;
+  top: -160px;
+  left: -120px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(91, 191, 224, 0.12) 0%, transparent 65%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.corsi-cta-strip::after {
+  content: '';
+  position: absolute;
+  bottom: -100px;
+  right: -80px;
+  width: 340px;
+  height: 340px;
+  background: radial-gradient(circle, rgba(168, 225, 245, 0.08) 0%, transparent 65%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.corsi-cta-inner {
+  max-width: 700px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.corsi-cta-badge {
+  display: inline-block;
+  background: rgba(91, 191, 224, 0.18);
+  border: 1px solid rgba(91, 191, 224, 0.35);
+  color: var(--c-accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 6px 18px;
+  border-radius: 50px;
+  margin-bottom: 24px;
+}
+
+.corsi-cta-title {
+  font-family: var(--font-sans);
+  font-weight: 900;
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  color: var(--c-white);
+  letter-spacing: -0.02em;
+  margin-bottom: 18px;
+  line-height: 1.15;
+}
+
+.corsi-cta-sub {
+  font-size: 1rem;
+  color: rgba(239, 250, 255, 0.68);
+  margin-bottom: 36px;
+  line-height: 1.7;
+}
+
+.corsi-cta-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ─── ORARIO INFO SECTION ──────────────────────────────────── */
+.corsi-info-section {
+  background: var(--c-white);
+  padding: 90px 5% 100px;
+  border-top: 1px solid var(--c-mid);
+}
+
+.corsi-info-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  align-items: start;
+}
+
+.corsi-info-eyebrow {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c-strong);
+  margin-bottom: 14px;
+}
+
+.corsi-info-title {
+  font-family: var(--font-sans);
+  font-weight: 900;
+  font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+  color: var(--c-darker);
+  letter-spacing: -0.02em;
+  margin-bottom: 22px;
+  line-height: 1.15;
+}
+
+.corsi-info-text {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--c-text-muted);
+  margin-bottom: 28px;
+}
+
+.corsi-info-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 36px;
+}
+
+.corsi-info-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: 0.92rem;
+  line-height: 1.62;
+  color: var(--c-text);
+}
+
+.corsi-info-check {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--c-strong);
+  color: var(--c-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.corsi-info-check svg {
+  width: 13px;
+  height: 13px;
+}
+
+/* orario box */
+.orario-box {
+  background: var(--c-base);
+  border: 1.5px solid var(--c-mid);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.orario-box-header {
+  background: linear-gradient(135deg, var(--c-strong), var(--c-dark));
+  padding: 22px 28px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--c-white);
+}
+
+.orario-box-header svg {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.orario-box-header h3 {
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.orario-rows {
+  padding: 8px 0;
+}
+
+.orario-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 28px;
+  border-bottom: 1px solid var(--c-mid);
+  gap: 16px;
+  transition: background var(--transition);
+}
+
+.orario-row:last-child {
+  border-bottom: none;
+}
+
+.orario-row:hover {
+  background: var(--c-light);
+}
+
+.orario-day {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--c-text);
+}
+
+.orario-time {
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 50px;
+  letter-spacing: 0.03em;
+}
+
+.orario-time.open {
+  background: rgba(91, 191, 224, 0.14);
+  color: var(--c-strong);
+}
+
+.orario-time.appt {
+  background: rgba(240, 192, 64, 0.12);
+  color: #c4960a;
+}
+
+.orario-time.closed {
+  background: rgba(255, 100, 100, 0.1);
+  color: #b05050;
+}
+
+.orario-note {
+  padding: 16px 28px;
+  font-size: 0.83rem;
+  color: var(--c-text-muted);
+  line-height: 1.6;
+  border-top: 1px dashed var(--c-mid);
+  font-style: italic;
+}
+
+/* ─── RESPONSIVE ───────────────────────────────────────────── */
+/* ═══════════════════════════════════════════════════
+   CORSI – RESPONSIVE MOBILE
+   ═══════════════════════════════════════════════════ */
+
+/* ── 1100px ─────────────────────────────────────────── */
+@media (max-width: 1100px) {
+  .corsi-intro-inner {
+    gap: 56px;
+  }
+  .corsi-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+}
+
+/* ── 900px ──────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .corsi-intro {
+    padding: 72px 5% 60px;
+  }
+  .corsi-intro-inner {
+    grid-template-columns: 1fr;
+    gap: 52px;
+  }
+  .corsi-dancers-col {
+    height: 400px;
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  .dancer-frame {
+    width: 145px;
+  }
+  .dancer-frame img {
+    height: 290px;
+  }
+  .dancer-frame--center {
+    width: 165px;
+  }
+  .corsi-info-inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .corsi-grid-section {
+    padding: 72px 5% 80px;
+  }
+}
+
+/* ── 768px ──────────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* Hero banner */
+  .page-hero-banner {
+    padding: 54px 5% 44px;
+  }
+  .page-hero-title {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+
+  /* Intro testo */
+  .corsi-intro {
+    padding: 60px 5% 52px;
+  }
+  .corsi-intro-heading {
+    font-size: clamp(1.7rem, 6vw, 2.6rem);
+  }
+  .corsi-intro-bullets li {
+    font-size: 0.9rem;
+  }
+
+  /* Dancers col */
+  .corsi-dancers-col {
+    height: 360px;
+    max-width: 420px;
+  }
+  .dancer-frame {
+    width: 130px;
+  }
+  .dancer-frame img {
+    height: 260px;
+  }
+  .dancer-frame--center {
+    width: 148px;
+  }
+  .dancers-accent-line {
+    display: none;
+  }
+
+  /* Grid corsi */
+  .corsi-grid-section {
+    padding: 60px 5% 72px;
+  }
+  .corsi-grid-title {
+    font-size: clamp(1.8rem, 6vw, 2.6rem);
+  }
+  .corsi-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+  .corso-card-banner {
+    height: 190px;
+  }
+  .corso-card-body {
+    padding: 20px 18px 22px;
+  }
+  .corso-card-title {
+    font-size: 1rem;
+  }
+  .corso-card-desc {
+    font-size: 0.86rem;
+  }
+  .corso-meta-chip {
+    font-size: 0.74rem;
+    padding: 4px 10px;
+  }
+}
+
+/* ── 640px ──────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .corsi-dancers-col {
+    height: 320px;
+    max-width: 360px;
+  }
+  .dancer-frame {
+    width: 115px;
+  }
+  .dancer-frame img {
+    height: 230px;
+  }
+  .dancer-frame--center {
+    width: 132px;
+  }
+}
+
+/* ── 520px: griglia a 1 colonna ─────────────────────── */
+@media (max-width: 520px) {
+  .corsi-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .corso-card-banner {
+    height: 200px;
+  }
+  .corsi-intro {
+    padding: 52px 4% 44px;
+  }
+  .corsi-grid-section {
+    padding: 52px 4% 60px;
+  }
+  .page-hero-banner {
+    padding: 44px 4% 36px;
+  }
+}
+
+/* ── 400px ──────────────────────────────────────────── */
+@media (max-width: 400px) {
+  .corsi-dancers-col {
+    height: 280px;
+    max-width: 300px;
+  }
+  .dancer-frame {
+    width: 100px;
+  }
+  .dancer-frame img {
+    height: 200px;
+  }
+  .dancer-frame--center {
+    width: 114px;
+  }
+  .corsi-intro-heading {
+    font-size: 1.6rem;
+  }
+  .corso-card-meta {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
