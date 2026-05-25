@@ -1,22 +1,26 @@
-/* ═══════════════════════════════════════════════════════════════
-   BigDance School – script.js
-   Tutti i blocchi sono opzionali: se un elemento non esiste sulla
-   pagina corrente il blocco viene saltato senza errori.
-═══════════════════════════════════════════════════════════════ */
-
 /* ── 1. NAVBAR: scroll + hamburger ──────────────────────────── */
 (function () {
   const navbar    = document.getElementById('navbar');
   const hamburger = document.getElementById('hamburger');
   const navLinks  = document.getElementById('nav-links');
 
-  // Scroll → classe scrolled
-  if (navbar) {
-    function updateScroll() {
-      navbar.classList.toggle('scrolled', window.scrollY > 40);
+  // Scroll → classe scrolled + aggiusta top del drawer
+  function updateScroll() {
+    if (!navbar) return;
+    const isScrolled = window.scrollY > 40;
+    navbar.classList.toggle('scrolled', isScrolled);
+
+    // Sposta il drawer: 64px navbar normale, 58px navbar scrolled
+    if (navLinks) {
+      const navH = isScrolled ? 58 : 64;
+      navLinks.style.top    = navH + 'px';
+      navLinks.style.height = 'calc(100dvh - ' + navH + 'px)';
     }
+  }
+
+  if (navbar) {
     window.addEventListener('scroll', updateScroll, { passive: true });
-    updateScroll(); // stato iniziale corretto (es. pagine con scrolled fisso)
+    updateScroll();
   }
 
   // Hamburger apri/chiudi
@@ -29,18 +33,15 @@
         spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
         spans[1].style.opacity   = '0';
         spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
-        document.body.style.overflow = 'hidden'; // blocca scroll dietro menu
       } else {
         spans[0].style.transform = '';
         spans[1].style.opacity   = '';
         spans[2].style.transform = '';
-        document.body.style.overflow = '';
       }
     }
 
     hamburger.addEventListener('click', () => {
-      const isOpen = navLinks.classList.contains('open');
-      setHamburgerState(!isOpen);
+      setHamburgerState(!navLinks.classList.contains('open'));
     });
 
     // Chiudi cliccando un link
@@ -48,7 +49,7 @@
       link.addEventListener('click', () => setHamburgerState(false));
     });
 
-    // Chiudi cliccando fuori dal menu
+    // Chiudi cliccando fuori
     document.addEventListener('click', (e) => {
       if (
         navLinks.classList.contains('open') &&
@@ -59,7 +60,7 @@
       }
     });
 
-    // Chiudi premendo Escape
+    // Chiudi con Escape
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && navLinks.classList.contains('open')) {
         setHamburgerState(false);

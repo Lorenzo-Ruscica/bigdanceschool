@@ -942,45 +942,63 @@ button,
   .nav-logo-img {
     height: 40px;
   }
+
+  /* Menu drawer: parte esattamente sotto la navbar */
   .nav-links {
     position: fixed;
-    top: 0;
+    top: 64px;          /* sotto la navbar normale */
     left: 0;
-    right: 0;
-    bottom: 0;
-    padding: 80px 24px 40px;
-    background: rgba(255,255,255,0.98);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
+    width: 100%;
+    height: calc(100% - 64px);
+    height: calc(100dvh - 64px);
+    padding: 32px 24px 48px;
+    background: #ffffff;
+    border-top: 1px solid var(--c-mid);
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     gap: 6px;
-    transform: translateX(100%);
-    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 999;
+    transform: translateY(-110%);
+    transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 998;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
   }
+
+  /* Quando scrolled la navbar è 58px: aggiusta il drawer */
+  .navbar.scrolled ~ * .nav-links,
+  .navbar.scrolled + .nav-links {
+    top: 58px;
+    height: calc(100% - 58px);
+    height: calc(100dvh - 58px);
+  }
+
   .nav-links.open {
-    transform: translateX(0);
+    transform: translateY(0);
   }
   .nav-link {
     color: var(--c-text);
-    font-size: 1.1rem;
-    font-weight: 600;
-    padding: 14px 28px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    padding: 18px 32px;
     width: 100%;
     max-width: 320px;
     text-align: center;
-    border-radius: 12px;
+    border-radius: 14px;
+    letter-spacing: 0.01em;
+    border-bottom: 1px solid transparent;
   }
   .nav-link:hover,
   .nav-link.active {
     background: var(--c-base);
     color: var(--c-dark);
+    border-bottom-color: transparent;
   }
   .hamburger {
     display: flex;
+    z-index: 1001;
+    position: relative;
   }
   .btn-outline-nav {
     display: none;
