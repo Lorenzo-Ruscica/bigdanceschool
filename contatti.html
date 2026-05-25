@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Contatti – BigDance School</title>
   <meta name="description" content="Contatta BigDance School a Cecina. Richiedi informazioni sui corsi, orari e iscrizioni. Siamo in Via Pisana Livornese 23, 57023 Cecina (LI)." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -22,7 +22,7 @@
       <nav class="nav-links" id="nav-links">
         <a href="index.html" class="nav-link">Home</a>
         <a href="chisiamo.html" class="nav-link">Chi Siamo</a>
-        <a href="index.html#corsi" class="nav-link">Corsi</a>
+        <a href="corsi.html" class="nav-link">Corsi</a>
         <a href="paralimpica.html" class="nav-link">Danza Paralimpica</a>
         <a href="contatti.html" class="nav-link active">Contatti</a>
       </nav>
@@ -172,7 +172,7 @@
     </a>
   </div>
 
-  <footer class="footer" id="contatti-footer">
+  <footer class="footer" id="contatti">
     <div class="footer-top">
       <div class="footer-inner">
 
@@ -195,11 +195,11 @@
             <p>57014 Cecina (LI)</p>
           </address>
           <div class="footer-contact-list">
-            <a href="tel:+390586660517" class="footer-contact-item" id="footer-phone-ct">
+            <a href="tel:+390586660517" class="footer-contact-item" id="footer-phone-corsi">
               <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
               (+39) 0586 660517
             </a>
-            <a href="mailto:info@bigdance.it" class="footer-contact-item" id="footer-email-ct">
+            <a href="mailto:info@bigdance.it" class="footer-contact-item" id="footer-email-corsi">
               <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
               info@bigdance.it
             </a>
@@ -234,23 +234,22 @@
             <span class="footer-col-icon">
               <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12 1.586l-4 4v12.828l4-4V1.586zM3.707 3.293A1 1 0 002 4v10a1 1 0 00.293.707L6 18.414V5.586L3.707 3.293zM17.707 5.293L14 1.586v12.828l2.293 2.293A1 1 0 0018 16V6a1 1 0 00-.293-.707z" clip-rule="evenodd"/></svg>
             </span>
-            Social
+            Mappa
           </h3>
-          <div class="footer-socials">
-            <a href="#" class="social-btn" id="footer-fb-ct" aria-label="Facebook">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
-            </a>
-            <a href="#" class="social-btn" id="footer-ig-ct" aria-label="Instagram">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-            </a>
-            <a href="#" class="social-btn" id="footer-yt-ct" aria-label="YouTube">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>
-            </a>
+          <div class="footer-map-wrap" id="footer-map-corsi">
+            <iframe
+              title="BigDance School su Google Maps"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2912.0!2d10.519!3d43.302!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDPCsDE4JzA3LjIiTiAxMMKwMzEnMDguNCJF!5e0!3m2!1sit!2sit!4v1000000000000!5m2!1sit!2sit"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
           </div>
         </div>
 
       </div>
     </div>
+
     <div class="footer-bottom">
       <div class="footer-bottom-inner">
         <p class="footer-copy">&copy; 2025 BigDance School – Tutti i diritti riservati</p>

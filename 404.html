@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>404 – Pagina non trovata | BigDance School</title>
+  <meta name="description" content="La pagina che cerchi non esiste. Torna alla home di BigDance School, la scuola di danza di Cecina." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: #06212f;
+      font-family: var(--font-sans, 'Outfit', sans-serif);
+      overflow-x: hidden;
+    }
+
+    /* ── NAVBAR ── */
+    .navbar-404 {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 0 5%;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      background: rgba(6, 33, 47, 0.85);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .navbar-404 .nav-logo-img {
+      height: 44px;
+      width: auto;
+      display: block;
+    }
+
+    /* ── BACKGROUND SHAPES ── */
+    .bg-shapes {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .bg-shape {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: 0.18;
+    }
+
+    .bg-shape-1 {
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, #1a8fb5, transparent 70%);
+      top: -200px;
+      right: -150px;
+      animation: float1 8s ease-in-out infinite;
+    }
+
+    .bg-shape-2 {
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, #0d4d66, transparent 70%);
+      bottom: -100px;
+      left: -100px;
+      animation: float2 10s ease-in-out infinite;
+    }
+
+    .bg-shape-3 {
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, #c9eef8, transparent 70%);
+      top: 40%;
+      left: 30%;
+      animation: float3 12s ease-in-out infinite;
+    }
+
+    @keyframes float1 {
+      0%, 100% { transform: translate(0, 0); }
+      50%       { transform: translate(-30px, 40px); }
+    }
+    @keyframes float2 {
+      0%, 100% { transform: translate(0, 0); }
+      50%       { transform: translate(40px, -30px); }
+    }
+    @keyframes float3 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50%       { transform: translate(-20px, 20px) scale(1.1); }
+    }
+
+    /* ── MAIN ── */
+    .page-404 {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 5% 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .content-404 {
+      text-align: center;
+      max-width: 640px;
+    }
+
+    /* ── DANCER SVG ── */
+    .dancer-404-wrap {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 0;
+    }
+
+    .dancer-404-svg {
+      width: 120px;
+      height: 120px;
+      animation: dance 2.4s ease-in-out infinite;
+      filter: drop-shadow(0 0 24px rgba(26,143,181,0.45));
+    }
+
+    @keyframes dance {
+      0%   { transform: rotate(-6deg) translateY(0); }
+      25%  { transform: rotate(4deg) translateY(-8px); }
+      50%  { transform: rotate(-4deg) translateY(-4px); }
+      75%  { transform: rotate(6deg) translateY(-10px); }
+      100% { transform: rotate(-6deg) translateY(0); }
+    }
+
+    /* ── 404 NUMBER ── */
+    .num-404 {
+      font-size: clamp(6rem, 18vw, 11rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 0.9;
+      background: linear-gradient(135deg, #c9eef8 0%, #1a8fb5 50%, #0d4d66 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 20px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .num-404::after {
+      content: '404';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #c9eef8 0%, #1a8fb5 50%, #0d4d66 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter: blur(28px);
+      opacity: 0.35;
+      z-index: -1;
+    }
+
+    /* ── TEXT ── */
+    .eyebrow-404 {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #7dd4ee;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .title-404 {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: clamp(1.4rem, 3.5vw, 2rem);
+      color: #effffc;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .subtitle-404 {
+      font-size: 1rem;
+      font-weight: 500;
+      color: rgba(207, 237, 248, 0.65);
+      line-height: 1.75;
+      margin-bottom: 40px;
+    }
+
+    /* ── DIVIDER ── */
+    .divider-404 {
+      width: 48px;
+      height: 3px;
+      border-radius: 3px;
+      background: linear-gradient(90deg, #1a8fb5, #7dd4ee);
+      margin: 0 auto 36px;
+    }
+
+    /* ── BUTTONS ── */
+    .btns-404 {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-404-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 15px 32px;
+      border-radius: 50px;
+      background: linear-gradient(135deg, #1a8fb5, #0d6b8a);
+      color: #fff;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      box-shadow: 0 8px 30px rgba(26,143,181,0.4);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    }
+
+    .btn-404-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 40px rgba(26,143,181,0.55);
+      background: linear-gradient(135deg, #20a8d4, #0d6b8a);
+    }
+
+    .btn-404-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 15px 32px;
+      border-radius: 50px;
+      border: 1.5px solid rgba(125, 212, 238, 0.35);
+      color: rgba(207, 237, 248, 0.85);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: border-color 0.25s ease, color 0.25s ease, transform 0.25s ease, background 0.25s ease;
+    }
+
+    .btn-404-ghost:hover {
+      border-color: #7dd4ee;
+      color: #c9eef8;
+      background: rgba(125, 212, 238, 0.08);
+      transform: translateY(-3px);
+    }
+
+    .btn-404-icon {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    /* ── QUICK LINKS ── */
+    .quick-links-404 {
+      margin-top: 56px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .quick-links-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(207,237,248,0.4);
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .quick-links-grid {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .quick-link {
+      display: inline-block;
+      padding: 9px 22px;
+      border-radius: 50px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: rgba(207,237,248,0.7);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+
+    .quick-link:hover {
+      background: rgba(26,143,181,0.18);
+      border-color: rgba(26,143,181,0.5);
+      color: #c9eef8;
+      transform: translateY(-2px);
+    }
+
+    /* ── FOOTER ── */
+    .footer-404 {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 24px 5%;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .footer-404-copy {
+      font-size: 0.8rem;
+      color: rgba(207,237,248,0.3);
+      font-weight: 500;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 480px) {
+      .btns-404 {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn-404-primary,
+      .btn-404-ghost {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="navbar-404" id="navbar-404">
+    <a href="index.html" id="nav-logo-404" aria-label="Torna alla home di BigDance School">
+      <img src="logo_Bigdance.png" alt="BigDance School" class="nav-logo-img" />
+    </a>
+  </header>
+
+  <!-- BG SHAPES -->
+  <div class="bg-shapes" aria-hidden="true">
+    <div class="bg-shape bg-shape-1"></div>
+    <div class="bg-shape bg-shape-2"></div>
+    <div class="bg-shape bg-shape-3"></div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main class="page-404" id="main-content">
+    <div class="content-404">
+
+      <!-- DANCER -->
+      <div class="dancer-404-wrap" aria-hidden="true">
+        <svg class="dancer-404-svg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- corpo ballerina stilizzata -->
+          <circle cx="60" cy="18" r="10" fill="#1a8fb5"/>
+          <!-- tronco -->
+          <path d="M60 28 L54 55 L46 72" stroke="#1a8fb5" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M60 28 L68 52 L78 68" stroke="#7dd4ee" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- gamba sx -->
+          <path d="M54 55 L48 78 L42 96" stroke="#1a8fb5" stroke-width="4" stroke-linecap="round"/>
+          <!-- gamba dx - alzata -->
+          <path d="M68 52 L80 62 L92 58" stroke="#7dd4ee" stroke-width="4" stroke-linecap="round"/>
+          <!-- braccia -->
+          <path d="M56 35 L38 28 L26 18" stroke="#c9eef8" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M64 36 L84 24 L96 14" stroke="#c9eef8" stroke-width="3.5" stroke-linecap="round"/>
+          <!-- nota musicale decorativa -->
+          <text x="98" y="38" font-size="16" fill="#7dd4ee" opacity="0.7">♪</text>
+          <text x="16" y="60" font-size="12" fill="#1a8fb5" opacity="0.5">♫</text>
+        </svg>
+      </div>
+
+      <!-- 404 -->
+      <div class="num-404" id="num-404">404</div>
+
+      <!-- TEXT -->
+      <span class="eyebrow-404">Ops! Passo falso…</span>
+      <h1 class="title-404">Questa pagina non esiste</h1>
+      <div class="divider-404" aria-hidden="true"></div>
+      <p class="subtitle-404">
+        Sembra che tu abbia perso il ritmo!<br>
+        La pagina che cerchi è stata spostata, rinominata o non è mai esistita.<br>
+        Torna alla pista da ballo 👇
+      </p>
+
+      <!-- CTA BUTTONS -->
+      <div class="btns-404">
+        <a href="index.html" class="btn-404-primary" id="btn-home-404">
+          <svg class="btn-404-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
+          </svg>
+          Torna alla Home
+        </a>
+        <a href="corsi.html" class="btn-404-ghost" id="btn-corsi-404">
+          <svg class="btn-404-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clip-rule="evenodd"/>
+          </svg>
+          Scopri i Corsi
+        </a>
+      </div>
+
+      <!-- QUICK LINKS -->
+      <div class="quick-links-404">
+        <span class="quick-links-label">Oppure vai direttamente a</span>
+        <div class="quick-links-grid">
+          <a href="chisiamo.html"    class="quick-link" id="ql-chisiamo">Chi Siamo</a>
+          <a href="paralimpica.html" class="quick-link" id="ql-para">Danza Paralimpica</a>
+          <a href="contatti.html"    class="quick-link" id="ql-contatti">Contatti</a>
+          <a href="corsi.html"       class="quick-link" id="ql-corsi">Tutti i Corsi</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer-404">
+    <p class="footer-404-copy">&copy; 2025 BigDance School – Via Pisana Livornese 23, Cecina (LI)</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Animazione ingresso
+    const content = document.querySelector('.content-404');
+    content.style.opacity = '0';
+    content.style.transform = 'translateY(32px)';
+    content.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        content.style.opacity = '1';
+        content.style.transform = 'translateY(0)';
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -395,6 +395,19 @@
   border-color: var(--c-accent);
 }
 
+/* Card cliccabile – overlay link trasparente */
+.corso-card-link {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: inherit;
+}
+
+.corso-card {
+  position: relative;
+}
+
+
 /* visual banner at top of card */
 .corso-card-banner {
   height: 220px;

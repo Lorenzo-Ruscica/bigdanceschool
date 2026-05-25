@@ -44,11 +44,44 @@ body {
 img {
   display: block;
   max-width: 100%;
+  -webkit-user-drag: none;
 }
 
 a {
   text-decoration: none;
   color: inherit;
+}
+
+/* ── Nessuna selezione testo su elementi interattivi ── */
+a,
+button,
+.btn,
+.nav-link,
+.hamburger,
+.hamburger span,
+.slider-prev,
+.slider-next,
+.dot,
+.corso-card-link,
+.dc-gallery-btn,
+.dc-gallery-dot,
+.dc-sidenav-link,
+.btn-read-more,
+.feature-card,
+.review-card,
+.stat-card,
+.cuore-stat,
+.para-feature,
+.palmares-card,
+.quick-link,
+.btn-404-primary,
+.btn-404-ghost,
+[role="button"] {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 .btn {
@@ -128,7 +161,7 @@ a {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 100;
+  z-index: 1000;
   padding: 0 5%;
   height: 72px;
   display: flex;
@@ -227,8 +260,10 @@ a {
   background: none;
   border: none;
   cursor: pointer;
-  padding: 6px;
+  padding: 8px;
   margin-left: auto;
+  position: relative;
+  z-index: 1001;
 }
 
 .hamburger span {
@@ -913,26 +948,29 @@ a {
     left: 0;
     right: 0;
     bottom: 0;
-    padding-top: 80px;
+    padding: 80px 24px 40px;
     background: rgba(255,255,255,0.98);
     backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     transform: translateX(100%);
     transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 99;
+    z-index: 999;
+    overflow-y: auto;
   }
   .nav-links.open {
     transform: translateX(0);
   }
   .nav-link {
     color: var(--c-text);
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     font-weight: 600;
     padding: 14px 28px;
     width: 100%;
+    max-width: 320px;
     text-align: center;
     border-radius: 12px;
   }

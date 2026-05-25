@@ -1,0 +1,734 @@
+.corso-hero-banner {
+  min-height: 340px;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 56px;
+}
+
+.corso-hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.corso-breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: rgba(239, 250, 255, 0.65);
+  text-decoration: none;
+  margin-bottom: 20px;
+  transition: color var(--transition);
+}
+
+.corso-breadcrumb:hover {
+  color: var(--c-white);
+}
+
+.corso-breadcrumb svg {
+  width: 16px;
+  height: 16px;
+}
+
+.corso-hero-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.corso-hero-chip {
+  display: inline-block;
+  background: rgba(239, 250, 255, 0.15);
+  border: 1px solid rgba(239, 250, 255, 0.3);
+  color: var(--c-white);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 6px 16px;
+  border-radius: 50px;
+  backdrop-filter: blur(8px);
+}
+
+
+.dc-perche {
+  background: var(--c-white);
+  padding: 84px 5% 80px;
+}
+
+.dc-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.dc-section-tag {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-strong);
+  margin-bottom: 16px;
+}
+
+.dc-tag-line {
+  width: 32px;
+  height: 3px;
+  background: var(--c-strong);
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.dc-section-title {
+  font-family: var(--font-sans);
+  font-weight: 900;
+  font-size: clamp(1.7rem, 3vw, 2.5rem);
+  color: var(--c-darker);
+  letter-spacing: -0.02em;
+  margin-bottom: 28px;
+  line-height: 1.15;
+}
+
+.dc-perche-text {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 40px;
+  max-width: 760px;
+}
+
+.dc-lead {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--c-text);
+}
+
+.dc-perche-text p {
+  font-size: 0.95rem;
+  line-height: 1.82;
+  color: var(--c-text-muted);
+}
+
+.dc-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  max-width: 760px;
+}
+
+.dc-benefit {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: var(--c-light);
+  border: 1.5px solid var(--c-mid);
+  border-radius: var(--radius);
+  padding: 16px 16px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--c-text);
+  line-height: 1.5;
+  transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+}
+
+.dc-benefit:hover {
+  border-color: var(--c-strong);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-3px);
+}
+
+.dc-benefit-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: var(--c-strong);
+  color: var(--c-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.dc-benefit-icon svg {
+  width: 15px;
+  height: 15px;
+}
+
+
+.dc-achi {
+  background: var(--c-base);
+  padding: 90px 5% 90px;
+  border-top: 1px solid var(--c-mid);
+}
+
+.dc-achi-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.dc-achi-lead {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--c-darker);
+  margin-bottom: 12px;
+}
+
+.dc-achi-body {
+  font-size: 0.93rem;
+  line-height: 1.82;
+  color: var(--c-text-muted);
+  margin-bottom: 32px;
+}
+
+.dc-checklist {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 36px;
+}
+
+.dc-check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--c-text);
+  font-weight: 500;
+}
+
+.dc-check-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--c-strong);
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+
+.dc-cta {
+  margin-top: 4px;
+}
+
+.dc-achi-photo {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.dc-photo-dots {
+  position: absolute;
+  top: 30px;
+  right: -8px;
+  width: 180px;
+  height: 300px;
+  background-image: radial-gradient(circle, var(--c-deep) 2px, transparent 2px);
+  background-size: 20px 20px;
+  opacity: 0.5;
+  z-index: 0;
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+.dc-photo-img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 460px;
+  object-fit: cover;
+  aspect-ratio: 4/5;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  background: var(--c-mid);
+  transition: transform 0.6s ease;
+}
+
+.dc-achi-photo:hover .dc-photo-img {
+  transform: scale(1.015);
+}
+
+.dc-photo-badge {
+  position: absolute;
+  bottom: 24px;
+  left: -16px;
+  z-index: 2;
+  background: var(--c-strong);
+  color: var(--c-white);
+  border-radius: var(--radius);
+  padding: 16px 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  box-shadow: 0 8px 24px rgba(26, 143, 181, 0.4);
+}
+
+.dc-badge-num {
+  font-size: 1.8rem;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.dc-badge-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+@media (max-width: 1024px) {
+  .dc-achi-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .dc-achi-photo {
+    order: -1;
+  }
+
+  .dc-photo-img {
+    max-width: 380px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 700px) {
+  .dc-benefits-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .dc-benefits-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dc-photo-badge {
+    left: 0;
+  }
+}
+/* ── SIDEBAR NAVIGAZIONE RAPIDA ──────────────────────── */
+.dc-sidenav {
+  position: fixed;
+  right: 28px;
+  top: 50%;
+  transform: translateY(-50%) translateX(calc(100% + 40px));
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  border-radius: 16px;
+  padding: 18px 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.06);
+  min-width: 160px;
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.35s ease;
+}
+
+.dc-sidenav--visible {
+  transform: translateY(-50%) translateX(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.dc-sidenav-label {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-text-muted);
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--c-mid);
+}
+
+.dc-sidenav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.dc-sidenav-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--c-text-muted);
+  text-decoration: none;
+  padding: 7px 10px;
+  border-radius: 8px;
+  transition: background var(--transition), color var(--transition), padding-left var(--transition);
+  position: relative;
+}
+
+.dc-sidenav-link::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--c-mid);
+  flex-shrink: 0;
+  transition: background var(--transition), transform var(--transition);
+}
+
+.dc-sidenav-link:hover {
+  background: var(--c-light);
+  color: var(--c-darker);
+}
+
+.dc-sidenav-link:hover::before {
+  background: var(--c-strong);
+}
+
+.dc-sidenav-link.active {
+  background: rgba(26, 143, 181, 0.08);
+  color: var(--c-strong);
+  font-weight: 700;
+}
+
+.dc-sidenav-link.active::before {
+  background: var(--c-strong);
+  transform: scale(1.5);
+}
+
+/* Nasconde la sidebar su schermi piccoli */
+@media (max-width: 1200px) {
+  .dc-sidenav {
+    display: none;
+  }
+}
+
+/* ── PICTURE GALLERY ─────────────────────────────────── */
+.dc-gallery {
+  background: var(--c-white);
+  padding: 84px 5% 80px;
+  border-top: 1px solid var(--c-mid);
+}
+
+.dc-gallery-slider {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  background: var(--c-darker);
+  max-width: 700px;
+}
+
+.dc-gallery-track {
+  display: flex;
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.dc-gallery-slide {
+  flex: 0 0 100%;
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+}
+
+.dc-gallery-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.dc-gallery-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  color: var(--c-white);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+  transition: background var(--transition), transform var(--transition);
+  z-index: 3;
+}
+
+.dc-gallery-btn:hover {
+  background: var(--c-strong);
+  border-color: var(--c-strong);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.dc-gallery-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.dc-gallery-prev { left: 16px; }
+.dc-gallery-next { right: 16px; }
+
+.dc-gallery-dots {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 3;
+}
+
+.dc-gallery-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition);
+}
+
+.dc-gallery-dot.active {
+  background: var(--c-strong);
+  transform: scale(1.2);
+}
+
+/* ── È ADATTA A ME? ──────────────────────────────────── */
+.dc-adatta {
+  background: var(--c-base);
+  padding: 84px 5% 80px;
+  border-top: 1px solid var(--c-mid);
+}
+
+.dc-adatta-body {
+  font-size: 0.95rem;
+  line-height: 1.82;
+  color: var(--c-text-muted);
+  max-width: 760px;
+}
+
+/* ── ORARI ───────────────────────────────────────────── */
+.dc-orari {
+  background: var(--c-white);
+  padding: 84px 5% 80px;
+  border-top: 1px solid var(--c-mid);
+}
+
+.dc-orari-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.dc-orari-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--c-text);
+  line-height: 1.6;
+}
+
+.dc-orari-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--c-strong);
+  flex-shrink: 0;
+}
+
+/* ── INSEGNANTI ──────────────────────────────────────── */
+.dc-insegnanti {
+  background: var(--c-base);
+  padding: 84px 5% 90px;
+  border-top: 1px solid var(--c-mid);
+}
+
+.dc-teachers-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.dc-teacher-card {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 56px;
+  align-items: flex-start;
+  background: var(--c-white);
+  border: 1.5px solid var(--c-mid);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.dc-teacher-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+
+.dc-teacher-photo-wrap {
+  overflow: hidden;
+  aspect-ratio: 3/4;
+  flex-shrink: 0;
+}
+
+.dc-teacher-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.dc-teacher-card:hover .dc-teacher-photo {
+  transform: scale(1.04);
+}
+
+.dc-teacher-info {
+  padding: 40px 40px 40px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.dc-teacher-name {
+  font-family: var(--font-sans);
+  font-weight: 900;
+  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+  color: var(--c-darker);
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.dc-teacher-role {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c-strong);
+  margin-bottom: 20px;
+}
+
+.dc-teacher-socials {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.dc-teacher-social {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--c-light);
+  border: 1.5px solid var(--c-mid);
+  color: var(--c-text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: background var(--transition), color var(--transition), border-color var(--transition), transform var(--transition);
+}
+
+.dc-teacher-social:hover {
+  background: var(--c-strong);
+  color: var(--c-white);
+  border-color: var(--c-strong);
+  transform: scale(1.1);
+}
+
+.dc-teacher-social svg {
+  width: 16px;
+  height: 16px;
+}
+
+.dc-teacher-bio {
+  font-size: 0.9rem;
+  line-height: 1.85;
+  color: var(--c-text-muted);
+}
+
+@media (max-width: 900px) {
+  .dc-teacher-card {
+    grid-template-columns: 1fr;
+  }
+
+  .dc-teacher-photo-wrap {
+    aspect-ratio: 16/9;
+    max-height: 320px;
+  }
+
+  .dc-teacher-info {
+    padding: 28px 28px 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dc-teacher-photo-wrap {
+    aspect-ratio: 4/3;
+  }
+
+  .dc-teacher-info {
+    padding: 20px 20px 28px;
+  }
+}
+
+/* ── BLOCCHI GIORNO (corsi bambini) ──────────────────── */
+.cb-day-block {
+  margin-top: 40px;
+  padding: 28px 32px 32px;
+  background: var(--c-base);
+  border: 1.5px solid var(--c-mid);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.cb-day-block:first-of-type {
+  margin-top: 8px;
+}
+
+.cb-day-block:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
+}
+
+.cb-day-title {
+  margin-bottom: 20px;
+}
+
+.cb-day-pill {
+  display: inline-block;
+  background: var(--c-strong);
+  color: var(--c-white);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 6px 18px;
+  border-radius: 50px;
+}
+
+@media (max-width: 600px) {
+  .cb-day-block {
+    padding: 20px 18px 24px;
+  }
+}
