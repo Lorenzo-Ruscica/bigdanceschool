@@ -264,28 +264,8 @@
   box-shadow: 0 30px 70px rgba(13, 77, 102, 0.28);
 }
 
-/* accent lines behind photos */
-.dancers-accent-line {
-  position: absolute;
-  width: 6px;
-  height: 320px;
-  border-radius: 4px;
-  background: linear-gradient(180deg, var(--c-strong), var(--c-accent));
-  pointer-events: none;
-}
-
-.dancers-accent-line--left {
-  left: 16px;
-  top: 60px;
-  opacity: 0.55;
-}
-
-.dancers-accent-line--right {
-  right: 16px;
-  top: 90px;
-  background: linear-gradient(180deg, var(--c-accent), var(--c-deep));
-  opacity: 0.45;
-}
+/* accent lines behind photos – rimosse */
+.dancers-accent-line { display: none; }
 
 /* ─── CORSI GRID ───────────────────────────────────────────── */
 .corsi-grid-section {
@@ -399,7 +379,7 @@
 .corso-card-link {
   position: absolute;
   inset: 0;
-  z-index: 2;
+  z-index: 10;
   border-radius: inherit;
 }
 

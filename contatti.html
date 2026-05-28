@@ -140,6 +140,10 @@
             <label for="ct-messaggio" class="ct-label">Messaggio *</label>
             <textarea id="ct-messaggio" name="messaggio" class="ct-input ct-textarea" placeholder="Scrivi qui la tua richiesta…" rows="5" required></textarea>
           </div>
+          <!-- Honeypot anti-spam: nascosto agli utenti, i bot lo riempiono -->
+          <div style="display:none" aria-hidden="true">
+            <input type="text" name="website" tabindex="-1" autocomplete="off" />
+          </div>
           <div class="ct-form-footer">
             <p class="ct-form-note">* campi obbligatori</p>
             <button type="submit" class="ct-btn-submit" id="ct-btn-submit">
@@ -149,6 +153,8 @@
               </svg>
             </button>
           </div>
+          <!-- Feedback messaggi -->
+          <div id="ct-feedback" class="ct-feedback" role="alert" aria-live="polite"></div>
         </form>
       </div>
 
@@ -261,20 +267,44 @@
   <script src="script.js"></script>
   <script>
     const form = document.getElementById('ct-form');
+    const feedback = document.getElementById('ct-feedback');
+
     if (form) {
-      form.addEventListener('submit', e => {
+      form.addEventListener('submit', async (e) => {
         e.preventDefault();
-        const btn = document.getElementById('ct-btn-submit');
+
+        const btn   = document.getElementById('ct-btn-submit');
         const label = btn.querySelector('.ct-btn-label');
-        label.textContent = 'Inviato ✓';
-        btn.classList.add('sent');
+
+        /* Stato: caricamento */
         btn.disabled = true;
-        setTimeout(() => {
-          label.textContent = 'Invia messaggio';
-          btn.classList.remove('sent');
+        label.textContent = 'Invio in corso…';
+        feedback.className = 'ct-feedback';
+        feedback.textContent = '';
+
+        try {
+          const data = new FormData(form);
+          const res  = await fetch('invia.php', { method: 'POST', body: data });
+          const json = await res.json();
+
+          if (json.ok) {
+            /* Successo */
+            feedback.className = 'ct-feedback ct-feedback--ok';
+            feedback.textContent = '✓ Messaggio inviato! Ti risponderemo al più presto.';
+            form.reset();
+          } else {
+            /* Errore lato server */
+            feedback.className = 'ct-feedback ct-feedback--err';
+            feedback.textContent = '✗ ' + (json.msg || 'Errore durante l\'invio. Riprova.');
+          }
+        } catch (_) {
+          /* Errore di rete */
+          feedback.className = 'ct-feedback ct-feedback--err';
+          feedback.textContent = '✗ Errore di connessione. Controlla la rete e riprova.';
+        } finally {
           btn.disabled = false;
-          form.reset();
-        }, 3500);
+          label.textContent = 'Invia messaggio';
+        }
       });
     }
 
