@@ -1,0 +1,9 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Disallow script files and administrative pages
+Disallow: /invia.php
+
+# Sitemap declaration
+Sitemap: https://www.bigdanceschool.it/sitemap.xml
