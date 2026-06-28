@@ -167,13 +167,16 @@ button,
   display: flex;
   align-items: center;
   background: transparent;
-  transition: background var(--transition), box-shadow var(--transition), height var(--transition);
+  border-bottom: 1px solid transparent;
+  transition: background var(--transition), border-color var(--transition), box-shadow var(--transition), height var(--transition);
 }
 
 .navbar.scrolled {
-  background: rgba(255,255,255,0.92);
-  backdrop-filter: blur(20px);
-  box-shadow: var(--shadow-sm);
+  background: rgba(239, 250, 255, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(91, 191, 224, 0.25);
+  box-shadow: 0 8px 32px rgba(13, 77, 102, 0.06);
   height: 62px;
 }
 
@@ -951,11 +954,13 @@ button,
     align-items: center;
     gap: 6px;
     transform: translateY(-110%);
-    transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.32s;
     z-index: 998;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    visibility: hidden;
+    pointer-events: none;
   }
 
   /* Quando scrolled la navbar è 58px: aggiusta il drawer */
@@ -968,6 +973,8 @@ button,
 
   .nav-links.open {
     transform: translateY(0);
+    visibility: visible;
+    pointer-events: auto;
   }
   .nav-link {
     color: var(--c-text);
@@ -1653,3 +1660,296 @@ button,
   }
 }
 
+/* ─── CUSTOM COURSE PAGE FIXES (Gallery & Teachers Layout) ─── */
+
+/* 1. Prevent image cutoff in specific gallery slides */
+.dc-gallery-slide img[src*="folio-danze-standard-cecina03.jpg"],
+.dc-gallery-slide img[src*="foliohiphop01.jpg"] {
+  object-fit: contain !important;
+  background: #061922 !important;
+}
+
+/* 2. Stretch teacher card photo vertically to remove empty space at the bottom (e.g. Yoga) */
+body.page-corso .dc-teacher-card {
+  align-items: stretch !important;
+}
+
+body.page-corso .dc-teacher-photo-wrap {
+  height: 100% !important;
+  aspect-ratio: auto !important;
+}
+
+body.page-corso .dc-teacher-photo {
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+/* 3. Contain couple photos inside the card to prevent side cropping (Massimiliano/Letizia, Carmen/Giacomo, Ylenia/Michele) */
+#dc-teacher-max-letizia .dc-teacher-photo,
+#dc-teacher-carmen .dc-teacher-photo,
+#dc-teacher-giacomo .dc-teacher-photo,
+#dc-teacher-michele-ylenia .dc-teacher-photo,
+#dc-teacher-ylenia-michele .dc-teacher-photo {
+  object-fit: contain !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* ─── FLOATING CIRCULAR COURSE PICKER (WHEEL MENU) ─── */
+.dc-wheel-trigger {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(6, 25, 34, 0.85);
+  border: 1.5px solid rgba(91, 191, 224, 0.4);
+  box-shadow: 0 4px 20px rgba(91, 191, 224, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--c-white);
+  cursor: pointer;
+  z-index: 1002;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s, box-shadow 0.3s;
+}
+
+.dc-wheel-trigger-label {
+  position: absolute;
+  right: 68px;
+  background: rgba(6, 25, 34, 0.9);
+  border: 1px solid rgba(91, 191, 224, 0.4);
+  color: var(--c-white);
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 6px 14px;
+  border-radius: 20px;
+  white-space: nowrap;
+  pointer-events: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: opacity 0.3s, transform 0.3s;
+  transform: translateX(0);
+}
+
+.dc-wheel-trigger:hover {
+  transform: scale(1.06);
+  border-color: rgba(91, 191, 224, 0.8);
+  box-shadow: 0 6px 24px rgba(91, 191, 224, 0.4);
+}
+
+.dc-wheel-trigger:hover .dc-wheel-trigger-label {
+  transform: translateX(-4px);
+  border-color: rgba(91, 191, 224, 0.7);
+}
+
+.dc-wheel-trigger svg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--c-white);
+}
+
+/* Modal Overlay */
+.dc-wheel-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(4, 15, 20, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s;
+}
+
+.dc-wheel-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Close Button */
+.dc-wheel-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--c-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.dc-wheel-close:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: rotate(90deg);
+}
+
+.dc-wheel-close svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* The Wheel container */
+.dc-wheel-wrapper {
+  position: relative;
+  width: 580px;
+  height: 580px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: wheelScaleIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes wheelScaleIn {
+  from {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Circular Track/Dial */
+.dc-wheel-dial {
+  position: absolute;
+  width: 440px;
+  height: 440px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(91, 191, 224, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.6s cubic-bezier(0.1, 0.8, 0.2, 1);
+  will-change: transform;
+}
+
+/* Center Logo/Text Area */
+.dc-wheel-center {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(13, 77, 102, 0.3) 0%, rgba(6, 25, 34, 0.8) 100%);
+  border: 1.5px solid rgba(91, 191, 224, 0.5);
+  box-shadow: 0 0 30px rgba(91, 191, 224, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 16px;
+  z-index: 10;
+}
+
+.dc-wheel-center-logo {
+  font-family: var(--font-playfair);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--c-white);
+  line-height: 1.2;
+}
+
+.dc-wheel-center-sub {
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(91, 191, 224, 0.8);
+  margin-top: 4px;
+}
+
+/* Wheel Items (Segments) */
+.dc-wheel-item {
+  position: absolute;
+  width: 105px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.66rem;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.04em;
+  background: rgba(6, 25, 34, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: transform 0.3s, background 0.3s, border-color 0.3s, color 0.3s;
+  transform-origin: center;
+  z-index: 5;
+}
+
+/* Inner wrapper for scale-on-hover to avoid overriding dynamic transform positioning */
+.dc-wheel-item-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 0 4px;
+  border-radius: inherit;
+  transition: transform 0.3s ease;
+}
+
+.dc-wheel-item:hover {
+  color: var(--c-white);
+  background: rgba(91, 191, 224, 0.2);
+  border-color: rgba(91, 191, 224, 0.7);
+  box-shadow: 0 0 16px rgba(91, 191, 224, 0.25);
+}
+
+.dc-wheel-item:hover .dc-wheel-item-inner {
+  transform: scale(1.08);
+}
+
+.dc-wheel-item.active {
+  color: var(--c-dark) !important;
+  background: var(--c-mid) !important;
+  border-color: var(--c-mid) !important;
+  box-shadow: 0 0 20px rgba(91, 191, 224, 0.4) !important;
+}
+
+@media (max-width: 580px) {
+  .dc-wheel-wrapper {
+    width: 340px;
+    height: 340px;
+  }
+  .dc-wheel-dial {
+    width: 230px;
+    height: 230px;
+  }
+  .dc-wheel-center {
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+  }
+  .dc-wheel-center-logo {
+    font-size: 0.78rem;
+  }
+  .dc-wheel-center-sub {
+    font-size: 0.52rem;
+  }
+  .dc-wheel-item {
+    width: 78px;
+    height: 30px;
+    font-size: 0.52rem;
+    border-radius: 12px;
+  }
+}

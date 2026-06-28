@@ -2,37 +2,11 @@
    CORSI PAGE – stile coerente con il sito BigDance School
    ============================================================ */
 
-/* ─── Navbar override (pagina statica, sempre scrolled) ───── */
-.page-corsi .navbar {
-  background: rgba(255, 255, 255, 0.96);
-  backdrop-filter: blur(20px);
-  box-shadow: 0 2px 12px rgba(13, 77, 102, 0.08);
-  height: 70px;
-}
-
-.page-corsi .nav-link {
-  color: var(--c-text);
-}
-
-.page-corsi .nav-link:hover,
-.page-corsi .nav-link.active {
-  background: var(--c-mid);
-  color: var(--c-dark);
-}
-
-.page-corsi .nav-logo-img {
-  filter: none;
-}
-
-.page-corsi .hamburger span {
-  background: var(--c-text);
-}
-
 /* ─── Page hero banner ─────────────────────────────────────── */
 .page-hero-banner {
-  margin-top: 70px;
+  margin-top: 0;
   background: linear-gradient(135deg, var(--c-darker) 0%, var(--c-dark) 100%);
-  padding: 70px 5% 60px;
+  padding: 130px 5% 65px;
   position: relative;
   overflow: hidden;
 }

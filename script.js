@@ -2,7 +2,7 @@
 (function () {
   const navbar    = document.getElementById('navbar');
   const hamburger = document.getElementById('hamburger');
-  const navLinks  = document.getElementById('nav-links');
+  const navLinks  = document.querySelector('.nav-links');
 
   // Scroll → classe scrolled + aggiusta top del drawer
   function updateScroll() {
@@ -10,16 +10,22 @@
     const isScrolled = window.scrollY > 40;
     navbar.classList.toggle('scrolled', isScrolled);
 
-    // Sposta il drawer: 64px navbar normale, 58px navbar scrolled
+    // Sposta il drawer solo su mobile (larghezza <= 768px)
     if (navLinks) {
-      const navH = isScrolled ? 58 : 64;
-      navLinks.style.top    = navH + 'px';
-      navLinks.style.height = 'calc(100dvh - ' + navH + 'px)';
+      if (window.innerWidth <= 768) {
+        const navH = isScrolled ? 58 : 64;
+        navLinks.style.top    = navH + 'px';
+        navLinks.style.height = 'calc(100dvh - ' + navH + 'px)';
+      } else {
+        navLinks.style.top    = '';
+        navLinks.style.height = '';
+      }
     }
   }
 
   if (navbar) {
     window.addEventListener('scroll', updateScroll, { passive: true });
+    window.addEventListener('resize', updateScroll, { passive: true });
     updateScroll();
   }
 
@@ -169,3 +175,117 @@
     observer.observe(el);
   });
 })();
+
+/* ── 5. RADIAL / ROTATING WHEEL COURSE PICKER ────────────────── */
+(function() {
+  const courses = [
+    { name: 'Danza Classica', url: 'danza-classica.html' },
+    { name: 'Contemporaneo', url: 'danza-contemporanea.html' },
+    { name: 'Ballo Liscio', url: 'ballo-liscio.html' },
+    { name: 'Hip Hop', url: 'hip-hop.html' },
+    { name: 'Danze Latine', url: 'danze-latine.html' },
+    { name: 'Balli di Gruppo', url: 'balli-di-gruppo.html' },
+    { name: 'Break Dance', url: 'break-dance.html' },
+    { name: 'Caraibico', url: 'danze-caraibiche.html' },
+    { name: 'Corsi Bambini', url: 'corsi-bambini.html' },
+    { name: 'Tango Argentino', url: 'tango.html' },
+    { name: 'Macumba', url: 'macumba.html' },
+    { name: 'Bollywood', url: 'bollywood.html' },
+    { name: 'Yoga', url: 'yoga.html' },
+    { name: 'Total Body', url: 'total-body.html' }
+  ];
+
+  // Controlla il file corrente per segnare il corso attivo
+  const currentFile = window.location.pathname.split('/').pop() || 'index.html';
+
+  // Mostriamo il selettore radiale solo sulle pagine dei corsi singoli
+  const isCoursePage = courses.some(c => c.url === currentFile);
+  if (!isCoursePage) return;
+
+  // Crea bottone trigger galleggiante
+  const trigger = document.createElement('button');
+  trigger.className = 'dc-wheel-trigger';
+  trigger.setAttribute('aria-label', 'Scegli il corso');
+  trigger.innerHTML = `
+    <span class="dc-wheel-trigger-label">Scegli Corso</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"></circle>
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+      <path d="M2 12h20"></path>
+    </svg>
+  `;
+  document.body.appendChild(trigger);
+
+  // Crea Overlay Modal
+  const overlay = document.createElement('div');
+  overlay.className = 'dc-wheel-overlay';
+  
+  // Genera gli elementi della ruota
+  const itemCount = courses.length;
+  const radius = window.innerWidth <= 580 ? 115 : 220;
+  
+  let itemsHTML = '';
+  courses.forEach((course, i) => {
+    const angle = (i * 360) / itemCount;
+    const radian = (angle - 90) * Math.PI / 180;
+    const x = Math.round(radius * Math.cos(radian));
+    const y = Math.round(radius * Math.sin(radian));
+    
+    const isActive = course.url === currentFile ? ' active' : '';
+    itemsHTML += `
+      <a href="${course.url}" class="dc-wheel-item${isActive}" style="transform: translate(${x}px, ${y}px)">
+        <span class="dc-wheel-item-inner">${course.name}</span>
+      </a>
+    `;
+  });
+
+  overlay.innerHTML = `
+    <button class="dc-wheel-close" aria-label="Chiudi selettore">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    <div class="dc-wheel-wrapper">
+      <div class="dc-wheel-dial">
+        ${itemsHTML}
+      </div>
+      <div class="dc-wheel-center">
+        <span class="dc-wheel-center-logo">BigDance</span>
+        <span class="dc-wheel-center-sub">Scegli Corso</span>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+
+  // Interazioni
+  const dial = overlay.querySelector('.dc-wheel-dial');
+  let rotationAngle = 0;
+  
+  trigger.addEventListener('click', () => {
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    
+    rotationAngle += 360;
+    dial.style.transform = `rotate(${rotationAngle}deg)`;
+    
+    // Contro-rotazione per mantenere il testo orizzontale e leggibile
+    overlay.querySelectorAll('.dc-wheel-item').forEach(item => {
+      const transformStr = item.style.transform;
+      const translateMatch = transformStr.match(/translate\(([^)]+)\)/);
+      const translatePart = translateMatch ? translateMatch[0] : '';
+      item.style.transform = `${translatePart} rotate(${-rotationAngle}deg)`;
+    });
+  });
+
+  const closeOverlay = () => {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  };
+
+  overlay.querySelector('.dc-wheel-close').addEventListener('click', closeOverlay);
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closeOverlay();
+  });
+})();
+
