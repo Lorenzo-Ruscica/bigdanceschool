@@ -280,3 +280,36 @@
   });
 })();
 
+/* ── 6. COOKIE CONSENT BANNER ────────────────────────────────── */
+(function() {
+  if (localStorage.getItem('cookieConsent') === 'accepted') return;
+
+  const banner = document.createElement('div');
+  banner.className = 'dc-cookie-banner';
+  banner.id = 'dc-cookie-banner';
+  banner.innerHTML = `
+    <div class="dc-cookie-content">
+      <p>Utilizziamo i cookie per migliorare la tua esperienza di navigazione. Leggi la <a href="privacy-policy.html" style="color: var(--c-mid); text-decoration: underline; font-weight: 600;">Privacy Policy</a> e la <a href="cookie-policy.html" style="color: var(--c-mid); text-decoration: underline; font-weight: 600;">Cookie Policy</a>.</p>
+      <div class="dc-cookie-actions">
+        <button class="dc-cookie-btn" id="dc-accept-cookies">Accetta</button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(banner);
+
+  setTimeout(() => {
+    banner.classList.add('show');
+  }, 1000);
+
+  const acceptBtn = document.getElementById('dc-accept-cookies');
+  if (acceptBtn) {
+    acceptBtn.addEventListener('click', () => {
+      banner.classList.remove('show');
+      localStorage.setItem('cookieConsent', 'accepted');
+      setTimeout(() => {
+        banner.remove();
+      }, 400);
+    });
+  }
+})();
+

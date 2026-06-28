@@ -2112,6 +2112,7 @@ body.page-corso .dc-teacher-photo {
   .corso-meta-chip {
     font-size: 0.6rem !important;
     padding: 2px 6px !important;
+    border-radius: 6px !important;
   }
 
   /* Compact 'A chi è rivolto' section */
@@ -2357,5 +2358,174 @@ body.page-corso .dc-teacher-photo {
 
   .dc-wheel-center {
     display: none !important;
+  }
+}
+
+/* ─── MINIMAL COOKIE CONSENT BANNER ─── */
+.dc-cookie-banner {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  width: 320px;
+  background: rgba(6, 25, 34, 0.95);
+  border: 1.5px solid rgba(91, 191, 224, 0.35);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border-radius: 16px;
+  padding: 16px;
+  z-index: 10000;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  opacity: 0;
+  transform: translateY(20px);
+  visibility: hidden;
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+}
+
+.dc-cookie-banner.show {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+.dc-cookie-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dc-cookie-content p {
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+}
+
+.dc-cookie-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.dc-cookie-btn {
+  background: var(--c-mid);
+  border: 1px solid var(--c-mid);
+  color: var(--c-dark);
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 6px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.dc-cookie-btn:hover {
+  background: rgba(91, 191, 224, 0.8);
+  border-color: rgba(91, 191, 224, 0.8);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 580px) {
+  .dc-cookie-banner {
+    left: 4% !important;
+    right: 4% !important;
+    width: 92% !important;
+    bottom: 74px !important;
+    padding: 12px 14px !important;
+    border-radius: 12px !important;
+  }
+  
+  .dc-cookie-content {
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 10px !important;
+  }
+  
+  .dc-cookie-content p {
+    font-size: 0.7rem !important;
+    line-height: 1.4 !important;
+    max-width: 70% !important;
+  }
+  
+  .dc-cookie-actions {
+    flex-shrink: 0 !important;
+  }
+  
+  .dc-cookie-btn {
+    padding: 6px 12px !important;
+  }
+}
+
+/* ─── POLICY PAGES STYLING ─── */
+.policy-section {
+  padding: 80px 5% 100px;
+  background: var(--c-base);
+}
+
+.policy-container {
+  max-width: 800px;
+  margin: 0 auto;
+  color: var(--c-darker);
+}
+
+.policy-container h2 {
+  font-family: var(--font-playfair);
+  font-size: 2rem;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  color: var(--c-darker);
+}
+
+.policy-container h3 {
+  font-family: var(--font-sans);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  color: var(--c-darker);
+}
+
+.policy-container p {
+  font-size: 0.98rem;
+  line-height: 1.75;
+  margin-bottom: 20px;
+  color: var(--c-dark);
+}
+
+.policy-container ul {
+  margin-bottom: 25px;
+  padding-left: 20px;
+}
+
+.policy-container li {
+  font-size: 0.98rem;
+  line-height: 1.75;
+  margin-bottom: 10px;
+  color: var(--c-dark);
+  list-style-type: disc;
+}
+
+@media (max-width: 768px) {
+  .policy-section {
+    padding: 48px 5% 64px;
+  }
+  
+  .policy-container h2 {
+    font-size: 1.6rem;
+    margin-top: 30px;
+    margin-bottom: 15px;
+  }
+  
+  .policy-container h3 {
+    font-size: 1.15rem;
+    margin-top: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .policy-container p, .policy-container li {
+    font-size: 0.9rem;
+    line-height: 1.65;
   }
 }

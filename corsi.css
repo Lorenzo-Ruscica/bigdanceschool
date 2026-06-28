@@ -464,7 +464,7 @@
   font-weight: 600;
   color: var(--c-strong);
   background: var(--c-base);
-  border-radius: 50px;
+  border-radius: 6px;
   padding: 5px 12px;
   border: 1px solid var(--c-mid);
 }
