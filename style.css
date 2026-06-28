@@ -2529,3 +2529,70 @@ body.page-corso .dc-teacher-photo {
     line-height: 1.65;
   }
 }
+
+/* ─── GLOBAL PAGE HERO BANNER (BLUE STRIP WITH SHAPES) ─── */
+.page-hero-banner {
+  margin-top: 0;
+  background: linear-gradient(135deg, var(--c-darker) 0%, var(--c-dark) 100%);
+  padding: 130px 5% 65px;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero-shapes {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.shape {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.shape-1 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(91, 191, 224, 0.14) 0%, transparent 70%);
+  top: -120px;
+  right: 10%;
+}
+
+.shape-2 {
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(168, 225, 245, 0.09) 0%, transparent 70%);
+  bottom: -80px;
+  left: 20%;
+}
+
+.page-hero-content {
+  max-width: 1300px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.page-hero-eyebrow {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--c-accent);
+  margin-bottom: 12px;
+}
+
+.page-hero-title {
+  font-family: var(--font-sans);
+  font-weight: 900;
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  color: var(--c-white);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+@media (max-width: 768px) {
+  .page-hero-banner {
+    padding: 110px 5% 45px;
+  }
+}
