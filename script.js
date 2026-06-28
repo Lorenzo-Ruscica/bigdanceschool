@@ -10,16 +10,10 @@
     const isScrolled = window.scrollY > 40;
     navbar.classList.toggle('scrolled', isScrolled);
 
-    // Sposta il drawer solo su mobile (larghezza <= 768px)
-    if (navLinks) {
-      if (window.innerWidth <= 768) {
-        const navH = isScrolled ? 58 : 64;
-        navLinks.style.top    = navH + 'px';
-        navLinks.style.height = 'calc(100dvh - ' + navH + 'px)';
-      } else {
-        navLinks.style.top    = '';
-        navLinks.style.height = '';
-      }
+    // Pulizia stili inline per evitare conflitti con la navbar fluttuante
+    if (navLinks && window.innerWidth > 768) {
+      navLinks.style.top    = '';
+      navLinks.style.height = '';
     }
   }
 
@@ -198,11 +192,7 @@
   // Controlla il file corrente per segnare il corso attivo
   const currentFile = window.location.pathname.split('/').pop() || 'index.html';
 
-  // Mostriamo il selettore radiale solo sulle pagine dei corsi singoli
-  const isCoursePage = courses.some(c => c.url === currentFile);
-  if (!isCoursePage) return;
-
-  // Crea bottone trigger galleggiante
+  // Mostriamo il selettore radiale su tutte le pagine del sito
   const trigger = document.createElement('button');
   trigger.className = 'dc-wheel-trigger';
   trigger.setAttribute('aria-label', 'Scegli il corso');
@@ -247,6 +237,7 @@
       </svg>
     </button>
     <div class="dc-wheel-wrapper">
+      <h3 class="dc-wheel-mobile-title">Scegli il Corso</h3>
       <div class="dc-wheel-dial">
         ${itemsHTML}
       </div>
